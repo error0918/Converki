@@ -6,4 +6,12 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="overflow_white.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="overflow_white.png" />
+  </ItemGroup>
+
 </Project>
