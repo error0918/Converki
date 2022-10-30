@@ -4,6 +4,7 @@
              xmlns:local="clr-namespace:Converki"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>

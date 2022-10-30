@@ -5,25 +5,171 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Converki"
         mc:Ignorable="d"
-        Title="Convertki" 
-        Height="450" 
+        Title="Converki" 
+        MinHeight="400"
+        Height="450"
+        MinWidth="400"
         Width="800">
     <Grid Background="LightBlue">
-        <TextBox HorizontalAlignment="Left" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged" Text="변환할 대상을 입력"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="60"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <DockPanel
+            HorizontalAlignment="Stretch" 
+            LastChildFill="True"
+            Grid.ColumnSpan="2"
+            Grid.Column="0"
+            Grid.Row="0">
+            
+            <Label
+                Content="주제"
+                VerticalContentAlignment="Center"
+                HorizontalContentAlignment="Center"
+                Foreground="White"
+                Background="Black"
+                Padding="10,10,10,10"/>
+            
+            <ComboBox
+                Width="Auto"
+                
+                HorizontalContentAlignment="Stretch"
+                HorizontalAlignment="Stretch" 
+                VerticalAlignment="Stretch">
+                <ComboBoxItem Content="cm^2"/>
+                <ComboBoxItem Content="m^2"/>
+                <ComboBoxItem Content="km^2"/>
+            </ComboBox>
+
+        </DockPanel>
+
+        <Label 
+            Content="기존 단위"
+            Foreground="White"
+            Background="Black"
+            FontSize="10"
+            Padding="5,0,5,0"
+            Height="15"
+            Grid.Column="0"
+            Grid.Row="1"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top" 
+            Margin="10,5,0,0"
+            Panel.ZIndex="1">
+            <Label.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Label.Resources>
+        </Label>
+
+        <ComboBox
+            Background="White"
+            Grid.Column="0"
+            Grid.Row="1"
+            HorizontalAlignment="Stretch" 
+            VerticalAlignment="Stretch" 
+            Margin="10,10,5,10" 
+            SelectionChanged="ComboBox_SelectionChanged">
+            <ComboBoxItem Content="cm^2"/>
+            <ComboBoxItem Content="m^2"/>
+            <ComboBoxItem Content="km^2"/>
+        </ComboBox>
         
-        <Button  
-            Background="DarkCyan"
-            Padding="10, 10, 10, 10"
+        <Label 
+            Content="변환할 대상"
+            Foreground="White"
+            Background="Black"
+            FontSize="10"
+            Padding="5,0,5,0"
+            Height="15"
+            Grid.Column="1"
+            Grid.Row="1"
+            HorizontalAlignment="Left"
+            VerticalAlignment="Top" 
+            Margin="5,5,0,0"
+            Panel.ZIndex="1">
+            <Label.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Label.Resources>
+        </Label>
+
+        <TextBox 
+            Text="0"
+            MaxLines="1"
+            VerticalContentAlignment="Center"
+            TextAlignment="Center"
+            TextWrapping="Wrap" 
+            Grid.Column="1"
+            Grid.Row="1"
+            HorizontalAlignment="Stretch" 
+            VerticalAlignment="Stretch" 
+            Margin="5,10,10,10" 
+            TextChanged="TextBox_TextChanged" >
+            <TextBox.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </TextBox.Resources>
+        </TextBox>
+
+        <Label
+            Content="↓ 전환 ↓"
+            FontWeight="Bold"
+            HorizontalContentAlignment="Center"
+            VerticalContentAlignment="Center"
+            Background="White"
             BorderBrush="Black"
             BorderThickness="1"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center"
+            Grid.Column="0"
+            Grid.ColumnSpan="2"
+            Grid.Row="2">
+            <Label.Resources>
+                <Style TargetType="Border">
+                    <Setter Property="CornerRadius" Value="10"/>
+                </Style>
+            </Label.Resources>
+        </Label>
+
+        <Button  
+            Background="DarkCyan"
+            BorderBrush="Black"
+            BorderThickness="1"
+            Height="40"
+            Padding="10, 10, 10, 10"
+            Grid.ColumnSpan="2"
+            Grid.Column="0"
+            Grid.RowSpan="5"
+            Grid.Row="0"
             HorizontalAlignment="Right" 
-            VerticalAlignment="Top" 
-            Margin="10, 10, 10, 10" Click="Button_Click">
+            VerticalAlignment="Bottom" 
+            Margin="10,10,10,10" 
+            Click="Button_Click">
             <Button.Resources>
                 <Style TargetType="Border">
-                    <Setter Property="CornerRadius" Value="15"/>
+                    <Setter Property="CornerRadius" Value="10"/>
                 </Style>
             </Button.Resources>
+            <Button.Effect>
+                <DropShadowEffect 
+                    BlurRadius="20" 
+                    ShadowDepth="10" 
+                    Direction="270"
+                    Opacity="0.5"/>
+            </Button.Effect>
+            
             <StackPanel 
                 Orientation="Horizontal">
                 <Image Source="overflow_white.png" Height="10" Width="10" Margin="0, 0, 10, 0"/>
