@@ -39,8 +39,6 @@
                 Padding="10,10,10,10"/>
             
             <ComboBox
-                Width="Auto"
-                
                 HorizontalContentAlignment="Stretch"
                 HorizontalAlignment="Stretch" 
                 VerticalAlignment="Stretch">
